@@ -1,0 +1,16 @@
+.tp-caption.Fashion-SmallText,
+.Fashion-SmallText,
+.tp-caption.Fashion-TextBlock,
+.Fashion-TextBlock {
+    font-family: 'Lato';
+    color: #FFF;
+}
+
+.tp-caption.Fashion-BigDisplay,
+.Fashion-BigDisplay {
+    font-family: 'Cookie';
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #FFF;
+    text-transform: capitalize;
+}
