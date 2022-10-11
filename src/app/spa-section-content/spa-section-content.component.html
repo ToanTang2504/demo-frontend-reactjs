@@ -17,74 +17,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 bottommargin">
-                        <div class="feature-box fbox-plain" data-animate="fadeIn">
+                    <div *ngFor="let about of abouts; index as i" class="col-lg-4 bottommargin">
+                        <div class="feature-box fbox-plain" data-animate="fadeIn" [attr.data-delay]="i * 300">
                             <div class="fbox-icon">
-                                <a href="#"><i class="spa-towel"></i></a>
+                                <a href="#"><i [class]="about.icon"></i></a>
                             </div>
                             <div class="fbox-content">
-                                <h3>Shower Services</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas omnis nam molestias minus ipsa, placeat!</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 bottommargin">
-                        <div class="feature-box fbox-plain" data-animate="fadeIn" data-delay="200">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="spa-sandals"></i></a>
-                            </div>
-                            <div class="fbox-content">
-                                <h3>Foot Treatments</h3>
-                                <p>Facere aliquam itaque quia recusandae, corporis fugit fugiat eaque, accusamus officiis reprehenderit.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 bottommargin">
-                        <div class="feature-box fbox-plain" data-animate="fadeIn" data-delay="800">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="spa-cup-flower"></i></a>
-                            </div>
-                            <div class="fbox-content">
-                                <h3>Internal Beautification</h3>
-                                <p>Velit id facilis odit aliquid laudantium. Tempore, sequi. Harum nesciunt, magni aperiam est?</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="w-100 clear"></div>
-
-                    <div class="col-lg-4 bottommargin">
-                        <div class="feature-box fbox-plain" data-animate="fadeIn" data-delay="1000">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="spa-meditation"></i></a>
-                            </div>
-                            <div class="fbox-content">
-                                <h3>Yoga &amp; Meditation</h3>
-                                <p>Voluptatum distinctio laboriosam, excepturi delectus nam fugit obcaecati reiciendis neque iste!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 bottommargin">
-                        <div class="feature-box fbox-plain" data-animate="fadeIn" data-delay="1000">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="spa-comb"></i></a>
-                            </div>
-                            <div class="fbox-content">
-                                <h3>Hair Dressing</h3>
-                                <p>Quis, tenetur. Nam explicabo modi pariatur, blanditiis distinctio sapiente fugiat accusantium.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 bottommargin">
-                        <div class="feature-box fbox-plain" data-animate="fadeIn" data-delay="1000">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="spa-flowers-feet"></i></a>
-                            </div>
-                            <div class="fbox-content">
-                                <h3>Herbal Pedicure</h3>
-                                <p>Veniam atque corporis commodi. Quidem odit, necessitatibus quo tenetur! Harum similique illo eligendi!</p>
+                                <h3>{{ about.title }}</h3>
+                                <p>{{ about.description }}</p>
                             </div>
                         </div>
                     </div>
@@ -104,62 +44,24 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam cupiditate, libero pariatur aliquam vitae deserunt esse assumenda, tenetur veritatis, nihil consectetur facilis!</p>
 
                         <div class="row justify-content-center col-mb-30 mt-4 mb-0">
-                            <div class="col-sm-6 col-md-4 text-center">
-                                <i class="spa-leaves i-plain i-large mx-auto mb-0" style="color: #D2D2D2;"></i>
-                                <div class="counter ls1 fw-semibold" style="color: #777; margin-top: 10px;"><span data-from="10" data-to="21" data-refresh-interval="50" data-speed="2000"></span></div>
-                                <h5>Spa Branches</h5>
-                            </div>
-
-                            <div class="col-sm-6 col-md-4 text-center">
-                                <i class="spa-woman i-plain i-large mx-auto mb-0" style="color: #D2D2D2;"></i>
-                                <div class="counter ls1 fw-semibold" style="color: #777; margin-top: 10px;"><span data-from="100" data-to="8514" data-refresh-interval="50" data-speed="2500"></span></div>
-                                <h5>Employees</h5>
-                            </div>
-
-                            <div class="col-sm-6 col-md-4 text-center">
-                                <i class="spa-meditation i-plain i-large mx-auto mb-0" style="color: #D2D2D2;"></i>
-                                <div class="counter ls1 fw-semibold" style="color: #777; margin-top: 10px;"><span data-from="100" data-to="458" data-refresh-interval="50" data-speed="3500"></span></div>
-                                <h5>Happy Clients</h5>
+                            <div *ngFor="let counter of counters; index as i" class="col-sm-6 col-md-4 text-center">
+                                <i [attr.class]="'spa-' + counter.icon + ' i-plain i-large mx-auto mb-0'" style="color: #D2D2D2;"></i>
+                                <div class="counter ls1 fw-semibold" style="color: #777; margin-top: 10px;"><span [attr.data-from]="counter.from" [attr.data-to]="counter.to" data-refresh-interval="50" [attr.data-speed]="2000 + i * 500">{{ counter.to }}</span></div>
+                                <h5>{{ counter.title }}</h5>
                             </div>
                         </div>
 
                     </div>
 
                     <div class="row justify-content-center col-mb-50">
-                        <div class="col-sm-6 col-md-4 text-center">
+                        <div *ngFor="let featureBox of featureBoxes; index as i" class="col-sm-6 col-md-4 text-center">
                             <div class="feature-box media-box">
                                 <div class="fbox-media" style="padding: 0 40px;">
-                                    <a href="#"><img class="rounded-circle img-thumbnail" src="demos/spa/images/services/1.jpg" alt="Why choose Us?"></a>
+                                    <a href="#"><img class="rounded-circle img-thumbnail" [src]="'demos/spa/images/services/' + (i + 1) + '.jpg'" alt="Why choose Us?"></a>
                                 </div>
                                 <div class="fbox-content">
-                                    <h3>Beauty.<span class="subtitle cookie-font">Your Property in Good Hands.</span></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
-                                    <a href="#" class="button button-rounded" style="margin: 20px 0 0 0;">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 text-center">
-                            <div class="feature-box media-box">
-                                <div class="fbox-media" style="padding: 0 40px;">
-                                    <a href="#"><img class="rounded-circle img-thumbnail" src="demos/spa/images/services/2.jpg" alt="Effective Planning"></a>
-                                </div>
-                                <div class="fbox-content">
-                                    <h3>Spa.<span class="subtitle cookie-font">Construction Process Organized.</span></h3>
-                                    <p>Porro repellat vero sapiente amet vitae quibusdam necessitatibus consectetur, labore totam. Accusamus perspiciatis asperiores labore esse.</p>
-                                    <a href="#" class="button button-rounded" style="margin: 20px 0 0 0;">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 text-center">
-                            <div class="feature-box media-box">
-                                <div class="fbox-media" style="padding: 0 40px;">
-                                    <a href="#"><img class="rounded-circle img-thumbnail" src="demos/spa/images/services/3.jpg" alt="Why choose Us?"></a>
-                                </div>
-                                <div class="fbox-content">
-                                    <h3>Relax.<span class="subtitle cookie-font">We have got you Covered.</span></h3>
-                                    <p>Quos, non, esse eligendi ab accusantium voluptatem. Maxime eligendi beatae, atque tempora ullam. Vitae delectus quia, consequuntur rerum quo.</p>
+                                    <h3>{{ featureBox.title }}<span class="subtitle cookie-font">{{ featureBox.subTitle }}</span></h3>
+                                    <p>{{ featureBox.description }}</p>
                                     <a href="#" class="button button-rounded" style="margin: 20px 0 0 0;">Read More</a>
                                 </div>
                             </div>
@@ -189,6 +91,7 @@
                 <div class="tabs tabs-responsive clearfix" id="tab-1" data-accordion-style="accordion accordion-bg">
 
                     <ul class="tab-nav center tab-nav2 bottommargin clearfix">
+                        <!-- <li *ngFor="let nav of tabNavs; index as i"><a [href]="'#tabs-' + (i + 1)">{{ nav }}</a></li> -->
                         <li><a href="#tabs-1">Spa Therapy</a></li>
                         <li><a href="#tabs-2">Beauty Facial</a></li>
                         <li><a href="#tabs-3">Body Wrap</a></li>
@@ -196,236 +99,23 @@
                     </ul>
 
                     <div class="tab-container">
-
-                        <div class="tab-content clearfix" id="tabs-1">
+                        <div *ngFor="let tab of tabs" class="tab-content clearfix" [attr.id]="'tabs-' + tab.id">
                             <div class="row">
-                                <div class="col-lg-6 service-wrap">
+                                <div *ngFor="let content of tab.tabContents" class="col-lg-6 service-wrap">
                                     <div class="service-header">
                                         <div class="service-name">
-                                            <a href="#">Swedish Massage</a>
+                                            <a href="#">{{ content.name }}</a>
                                         </div>
                                         <div class="service-dots">
                                             <span class="separator-dots"></span>
                                         </div>
-                                        <div class="service-price color">$39</div>
+                                        <div class="service-price color">{{ content.price }}</div>
                                     </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
+                                    <p class="service-desc">{{ content.description }}</p>
                                 </div>
-
-                                <div class="col-lg-6 service-wrap">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Full Body Massage</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$42</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="w-100"></div>
-
-                                <div class="col-lg-6 service-wrap mb-0">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Foot Massage</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$29</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="col-lg-6 service-wrap mb-0">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Choclate Massage</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$17</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
+                                <div *ngIf="tab.id % 2 === 0" class="w-100"></div>
                             </div>
                         </div>
-                        <div class="tab-content clearfix" id="tabs-2">
-                            <div class="row">
-                                <div class="col-lg-6 service-wrap">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Signature Facial</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$22</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="col-lg-6 service-wrap">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Organic Facial</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$40</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="w-100"></div>
-
-                                <div class="col-lg-6 service-wrap mb-0">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Deep Cleansing Facial</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$31</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="col-lg-6 service-wrap mb-0">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Anti Aging Facial</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$19</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-content clearfix" id="tabs-3">
-                            <div class="row">
-                                <div class="col-lg-6 service-wrap">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Papaya Wrap</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$51</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="col-lg-6 service-wrap">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Cucumber Wrap</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$29</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="w-100"></div>
-
-                                <div class="col-lg-6 service-wrap mb-0">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Whitening Wrap</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$39</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="col-lg-6 service-wrap mb-0">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Signature Wrap</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$20</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-content clearfix" id="tabs-4">
-                            <div class="row">
-                                <div class="col-lg-6 service-wrap">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Menicure</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$39</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="col-lg-6 service-wrap">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Pedicure</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$42</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="w-100"></div>
-
-                                <div class="col-lg-6 service-wrap mb-0">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Rice Body Scrub</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$29</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-
-                                <div class="col-lg-6 service-wrap mb-0">
-                                    <div class="service-header">
-                                        <div class="service-name">
-                                            <a href="#">Corn Cub Scrub</a>
-                                        </div>
-                                        <div class="service-dots">
-                                            <span class="separator-dots"></span>
-                                        </div>
-                                        <div class="service-price color">$17</div>
-                                    </div>
-                                    <p class="service-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>
@@ -444,20 +134,10 @@
                         <div class="fslider restaurant-reviews" data-arrows="false" data-animation="slide">
                             <div class="flexslider">
                                 <div class="slider-wrap">
-                                    <div class="slide">
-                                        <p class="lead">"Globalization fairness non-partisan visionary, institutions Aga Khan resolve. Results public-private partnerships, international development elevate scalable."</p>
-                                        <span class="font-primary"><strong>John Doe</strong>, New York Magazine</span><br>
+                                    <div *ngFor="let slider of sliders" class="slide">
+                                        <p class="lead">{{ slider.description }}</p>
+                                        <span class="font-primary"><strong>{{ slider.name }}</strong>, {{ slider.locationName }}</span><br>
                                         <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i>
-                                    </div>
-                                    <div class="slide">
-                                        <p class="lead">"Medicine; experience in the field climate change achieve voice public-private partnerships process our ambitions. Sanitation."</p>
-                                        <span class="font-primary"><strong>Mary Jane</strong>, Chicago News</span><br>
-                                        <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i> <i class="icon-star-empty"></i>
-                                    </div>
-                                    <div class="slide">
-                                        <p class="lead">"Healthcare forward-thinking public service, social innovation making progress. Arab Spring social analysis, equality treatment, diversification."</p>
-                                        <span class="font-primary"><strong>Luis Frank</strong>, France</span><br>
-                                        <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-empty"></i>
                                     </div>
                                 </div>
                             </div>

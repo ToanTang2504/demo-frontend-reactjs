@@ -8,6 +8,7 @@ import { SpaSectionSliderComponent } from './spa-section-slider/spa-section-slid
 import { SpaSectionContentComponent } from './spa-section-content/spa-section-content.component';
 import { SpaSectionFooterComponent } from './spa-section-footer/spa-section-footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SpaService } from './services/spa.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [SpaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
